@@ -58,5 +58,66 @@
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
+// Multiplication Table Generator
+//
+// Install the input library (only once):
+// npm install readline-sync
+//
+// Run the program:
+// node assignment_06_multiplication_table.js
 
+const readlineSync = require("readline-sync");
+
+
+function printSingleTable(number) {
+
+    console.log(`\nMultiplication Table for ${number}:`);
+
+    for (let i = 1; i <= 12; i++) {
+        console.log(`${number} x ${i} = ${number * i}`);
+    }
+}
+
+
+function printTablesUpToN(n) {
+
+    for (let number = 1; number <= n; number++) {
+
+        console.log(`\nMultiplication Table for ${number}:`);
+
+        for (let i = 1; i <= 12; i++) {
+            console.log(`${number} x ${i} = ${number * i}`);
+        }
+
+        if (number < n) {
+            console.log("---------------------------");
+        }
+    }
+}
+
+
+function main() {
+
+   
+    let number = readlineSync.questionInt("Enter a number for multiplication table: ");
+
+    if (number <= 0) {
+        console.log("Error: Number must be a positive integer.");
+        return;
+    }
+
+    printSingleTable(number);
+
+    let n = readlineSync.questionInt("\nEnter N to generate tables from 1 to N: ");
+
+    if (n <= 0) {
+        console.log("Error: N must be a positive integer.");
+        return;
+    }
+
+    printTablesUpToN(n);
+}
+
+
+main();
 
